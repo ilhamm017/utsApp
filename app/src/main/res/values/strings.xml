@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name" translatable="false">utsApp</string>
+    <string name="berita1" translatable="false">Prabowo Sambangi Rumah Dinas Zulkifli Hasan</string>
+    <string name="berita2" translatable="false">Jokowi Restui Prabowo Subiyanto Jadi Capres 2024</string>
+    <string name="berita3" translatable="false">Kapolda Metro Tegaskan Mahasiswa di Patung Kuda Langgar Aturan Jam Demo</string>
+    <string name="berita4" translatable="false">Spanduk "Wapres Bocil" Diusung Mahasiswa dalam Aksi di Patung Kuda</string>
+    <string name="berita5" translatable="false">PDIP Tegaskan Gibran  hingga Bobby Jadi Jurkamnas Ganjar-Mahfud</string>
+    <string name="berita6" translatable="false">Mahasiswa Bakar di Patung Kuda Jakarta</string>
+    <string name="berita7" translatable="false">Jennifer Dunn Dipuji Foto Bareng Anak Perempuannya</string>
+    <string name="berita8" translatable="false">Kondisi Rebecca Klopper Usai Kembali Diserang Dugaan Video Syur</string>
+    <string name="berita9" translatable="false">Momen Pertemuan Ammar Zoni dan Irish Bella</string>
+    <string name="berita10" translatable="false">Istri Zul Zivilia Ungkap 2 Pemotor Sempat Dekati dan Hantam Mobil dengan Celurit</string>
+
+    <string name="link1">https://www.cnnindonesia.com/nasional/20231020204306-617-1014063/prabowo-sambangi-rumah-dinas-zulkifli-hasan-malam-ini-ahy-ikut</string>
+</resources>
