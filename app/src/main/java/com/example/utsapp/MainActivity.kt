@@ -59,49 +59,44 @@ class MainActivity : ComponentActivity() {
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun utsApp() {
-    val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
-    val scrollState = rememberScrollState()
-    val scope = rememberCoroutineScope()
-    Scaffold(
-        modifier = Modifier
-            .nestedScroll(scrollBehavior.nestedScrollConnection),
-
-        topBar = {
-            CenterAlignedTopAppBar(
-                colors = TopAppBarDefaults.mediumTopAppBarColors(
+fun utsApp() { //fungsi utsApp
+    val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState()) //Membuat scrollBehavior yang berfungsi untuk memposisikan Top bar tetap di atas layar saat digulirkan
+    Scaffold( //menggunakan Scaffold untuk menampilkan topBar
+        topBar = { //Membuat top bar
+            CenterAlignedTopAppBar( //Top bar dengan posisi center
+                colors = TopAppBarDefaults.mediumTopAppBarColors( //Menerapkan warna primary
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
                     titleContentColor = MaterialTheme.colorScheme.primary
                 ),
-                title = {
+                title = { //Diberi judul dengan nama Berita Random
                     Text(
                         "Berita Random",
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis
                     )
                 },
-                scrollBehavior = scrollBehavior
+                scrollBehavior = scrollBehavior //Menggunakan scrollBehavior
             )
         }
     ) {
-        Content()
+        Content() //Memanggil fungsi Content
     }
 }
 
 @Composable
-fun Content() {
-    AffirmationList(
+fun Content() {  //fungsi konten yang menampilkan list berita
+    BeritaList(
         beritaList = Datasources().loadBerita(),
     )
 }
 
 @Composable
-fun AffirmationList(beritaList: List<Berita>, modifier: Modifier = Modifier) {
+fun BeritaList(beritaList: List<Berita>, modifier: Modifier = Modifier) { //fungsi yang menyusun berita
     LazyColumn(modifier = modifier) {// Menampilkan daftar afirmasi dalam bentuk grid.
         /*LazyColumn menampilkan item-item secara lazy,
         yaitu hanya item yang terlihat di layar saja*/
         items(beritaList) { berita ->
-            AffirmationCard(
+            BeritaCard(
                 berita = berita,
                 modifier = Modifier.padding(8.dp)
             )
@@ -110,10 +105,10 @@ fun AffirmationList(beritaList: List<Berita>, modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun AffirmationCard(berita: Berita, modifier: Modifier = Modifier) {
+fun BeritaCard(berita: Berita, modifier: Modifier = Modifier) { //Fungsi yang digunakan untuk membentuk card berita
     Card(modifier = modifier) {
-        Column {
-            Image(
+        Column {//Diurutkan dari atas ke bawah
+            Image( //Menampilkan gambar berita
                 painter = painterResource(berita.imageResourceId),
                 contentDescription = stringResource(berita.stringResourcesId),
                 modifier = Modifier
@@ -121,7 +116,7 @@ fun AffirmationCard(berita: Berita, modifier: Modifier = Modifier) {
                     .height(194.dp),
                 contentScale = ContentScale.Crop
             )
-            Text(
+            Text( //Menampilkan text berita
                 text = LocalContext.current.getString(berita.stringResourcesId),
                 modifier = Modifier.padding(16.dp),
                 style = MaterialTheme.typography.headlineSmall
